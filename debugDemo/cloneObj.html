@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //原始的对象
+    var obj1 = {
+        age:"18",
+        index:"1",
+        name:"liji"
+    };
+
+    //1.对象直接赋值给xx变量(浅克隆)
+    //改变name属性的值 obj1和obj2都会产生变化
+    var obj2 = obj1;
+    obj2.name = "xx";
+    console.log(obj1);
+    console.log(obj2);
+
+
+    //2.新建对象 重新写入obj1的值(深克隆)
+    //改变yy.name属性的值 只会影响yy
+    //改变obj1.name属性的值 只会影响obj1
+//    var yy = {};
+//    yy.age = obj1.age;
+//    yy.index = obj1.index;
+//    yy.name = obj1.name;
+//    yy.name = "yy";
+//    obj1.name = "222";
+//    console.log(obj1);
+//    console.log(yy);
+
+    //3.查阅资料发现 下面这种方式也可以产生深度克隆
+    //    var dataObjCloned=JSON.parse(JSON.stringify( liji ));
+    //    dataObjCloned.name = 'xx';
+    //    console.log(liji);
+    //    console.log(dataObjCloned);
+
+
+    //4.一个应用实例,需要将ajax请求的对象进行备份 原始数据用于修改页面上的内容 备份数据用于重置
+    //考虑上述需求需要深度克隆数据
+//    function cloneData(d){
+//        var obj = {};
+//        for(var key in d){
+//            obj[key] = d[key];
+//        }
+//        return obj;
+//    }
+//    var clone = cloneData(obj1);
+//    clone.name = "new obj";
+//    console.log(obj1);
+//    console.log(clone);
+</script>
+</body>
+</html>
